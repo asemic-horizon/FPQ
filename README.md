@@ -55,76 +55,78 @@ Cada questionário tem três partes: `conteúdo`, `seções` e `questões`.
 
 A primeira parte tem a seguinte forma:
 
-``
-conteúdo:
-  título: Políticas de Exemplo
-  seções: 
-    - seção1
-    - seção2
-    - seção3
-``
+
+    conteúdo:
+      título: Políticas de Exemplo
+      seções: 
+        - seção1
+        - seção2
+        - seção3
+
 
 As seções são definidas na parte seguinte:
 
-`` 
-seções:
-  seção1:
-    título: Primeira Seção
-    conteúdo:
-      - q1
-      - q2
-      - q3
-  seção2:
-    título: Segunda Seção
-    conteúdo:
-      - q4
-      - q5
-      - q6
-  seção3:
-    título: Terceira Seção
-    conteúdo:
-      - p*
-``
+
+    seções:
+      seção1:
+        título: Primeira Seção
+        conteúdo:
+          - q1
+          - q2
+          - q3
+      seção2:
+        título: Segunda Seção
+        conteúdo:
+          - q4
+          - q5
+          - q6
+      seção3:
+        título: Terceira Seção
+        conteúdo:
+          - p*
+
 
 O conteúdo das seções são questões definidas na parte seguinte (sendo que acima a terceira seção tem todas as questões que começam com `p`. A parte das questões tem o seguinte formato:
 
-``
-questões:
-  q1:
-    texto: Este exemplo é bom para que problemas?
-    tipo-resposta: escolha múltipla
-    respostas:
-      - Problemas tipo 1
-      - Problemas tipo 2
- q2:
-  texto: Este exemplo serve para algo?
-  respostas:
-      - Sim
-      - Não
- q3:
-  texto: Quantos exemplos são necessários?
-  tipo-resposta: valor 
- q4:
-  ascendentes: [q3]
-  texto: Quantos exemplos de cada tipo faltam?
-  tipo-resposta: valor
-  respostas:
-    - Exemplos específicos
-    - Exemplos gerais
- q5: 
-  texto: |
-      Finalmente: este caractere ":" só pode ser usado em um texto multilinha assim.
-  respostas:
-    - Não sabia
-    - Óbvio.
-``
+
+    questões:
+      q1:
+        texto: Este exemplo é bom para que problemas?
+        tipo-resposta: escolha múltipla
+        respostas:
+          - Problemas tipo 1
+          - Problemas tipo 2
+     q2:
+      texto: Este exemplo serve para algo?
+      respostas:
+          - Sim
+          - Não
+     q3:
+      texto: Quantos exemplos são necessários?
+      tipo-resposta: valor 
+     q4:
+      ascendentes: [q3]
+      texto: Quantos exemplos de cada tipo faltam?
+      tipo-resposta: valor
+      respostas:
+        - Exemplos específicos
+        - Exemplos gerais
+     q5: 
+      texto: |
+          Finalmente: este caractere ":" só pode ser usado em um texto multilinha assim.
+      respostas:
+        - Não sabia
+        - Óbvio.
+
 
 No modelo acima observamos as seguintes regras:
 
 * Uma questão deve ter um campo `texto` e (ou um campo `tipo-resposta` ou um campo `respostas`). 
 * Caso não exista um `tipo-resposta`, presume-se que seja `escolha única`. 
 * Caso não exista um valor, presume-se que só exista uma opção sem texto.
+* A questão `q4` virá sempre precedida da questão `q3`, mesmo que esqueçamos de incluí-la em uma seção.
 
+Finalmente, questões que não foram incluídas em nenhuma seção aparecerão em uma seção chamada "Outros"
 
 ## Instalação da ferramenta de conversão para Word
 
